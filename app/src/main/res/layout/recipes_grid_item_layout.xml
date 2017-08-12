@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+    style="@style/listItemStyle"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/recipe_item_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_grid_height" />
+
+    <TextView
+        android:id="@+id/recipe_name_text_view"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        style="@style/cardTextStyle"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
