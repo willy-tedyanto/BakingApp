@@ -26,13 +26,13 @@ public class IngredientsFragment extends Fragment {
 
     @BindView(R.id.ingredients_textview) TextView mIngredientTextView;
 
-    private RecipeModel mRecipe;
+    private static RecipeModel mRecipe;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_ingredients, container, false);
-Log.e(TAG, "on createview");
+Log.e(TAG, "OncreateView : mrecipe = " + (mRecipe == null));
         ButterKnife.bind(this, rootView);
 
         showIngredients();
@@ -57,6 +57,7 @@ Log.e(TAG, "on createview");
 
     public void setRecipe(RecipeModel recipe){
         mRecipe = recipe;
+Log.e(TAG, "setRecipe : mRecipe = null = " + (mRecipe == null));
     }
 
 }

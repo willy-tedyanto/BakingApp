@@ -1,9 +1,9 @@
 package com.bobnono.bakingapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.bobnono.bakingapp.model.RecipeModel;
@@ -33,22 +33,13 @@ public class RecipeDetailsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_details);
 
+Log.e(TAG, "Oncreate");
+
         if (savedInstanceState != null){
+
             mRecipe = savedInstanceState.getParcelable(BUNDLE_RECIPE);
             mPosition = savedInstanceState.getInt(BUNDLE_POSITION);
             mFragmentShowWhat = FragmentCurrentContent.values()[savedInstanceState.getInt(BUNDLE_FRAGMENT_SHOW_WHAT)];
-        }
-
-        Intent intent = getIntent();
-
-        mRecipe = intent.getParcelableExtra(MainActivity.BUNDLE_RECIPE_DETAILS);
-
-        //=== Check Id if clicked from widget
-        int mRecipePosition = intent.getIntExtra(RecipeDetailsActivity.EXTRA_RECIPE_POSITION, -1);
-        if (mRecipePosition > -1){
-            mRecipe = MainActivity.mRecipesList.get(mRecipePosition);
-            mPosition = 0; //0 for show ingredients
-            mFragmentShowWhat = FragmentCurrentContent.INGREDIENT;
         }
 
         if(findViewById(R.id.detail_linear_layout) != null) {

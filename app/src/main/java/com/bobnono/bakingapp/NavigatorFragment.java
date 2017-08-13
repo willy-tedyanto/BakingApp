@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +24,8 @@ public class NavigatorFragment extends Fragment
 
     String TAG = NavigatorFragment.class.getSimpleName();
 
-    private RecipeModel mRecipe;
-    private int mPosition;
+    private static RecipeModel mRecipe;
+    private static int mPosition;
 
     OnNavigatorFragmentClickListener mCallback;
 

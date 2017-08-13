@@ -113,9 +113,8 @@ public class MasterListFragment extends Fragment
     @Override
     public void onResume() {
         super.onResume();
-Log.e(TAG, "on resume : before if ");
+
         if (mListState != null){
-Log.e(TAG, "on resume : after if ");
             linearLayoutManager.onRestoreInstanceState(mListState);
         }
     }

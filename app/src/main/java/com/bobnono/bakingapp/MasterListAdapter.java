@@ -2,6 +2,7 @@ package com.bobnono.bakingapp;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.Ma
                 " " + (stepId > 0 ? stepId : ""));
             holder.mSubTitleTextView.setText(mRecipe.getStep(position - 1).getShortDescription());
 
-            if (mRecipe.getStep(position - 1).getThumbnailUrl().length() == 0){
+            if (TextUtils.isEmpty(mRecipe.getStep(position - 1).getThumbnailUrl())){
                 mRecipe.getStep(position - 1).setThumbnailUrl("-");
             }
 

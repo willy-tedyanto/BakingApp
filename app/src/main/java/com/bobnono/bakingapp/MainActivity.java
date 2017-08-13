@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private final String BUNDLE_RECIPES_DATA = "bundle_recipes_data";
-    public static final String BUNDLE_RECIPE_DETAILS = "bundle_recipe_details";
-    private static final String SEARCH_QUERY_URL_EXTRA = "query";
+    private final String BUNDLE_RECIPES_DATA = "com.bobnono.bakingapp.MainActiity.BUNDLE_RECIPES_DATA";
+    public static final String BUNDLE_RECIPE_DETAILS = "com.bobnono.bakingapp.MainActiity.BUNDLE_RECIPE_DETAILS";
+    private static final String SEARCH_QUERY_URL_EXTRA = "com.bobnono.bakingapp.MainActiity.SEARCH_QUERY_URL_EXTRA";
     private final int GRID_SCALING_FACTOR = 180;
     private static final int RECIPES_SEARCH_LOADER = 100;
 

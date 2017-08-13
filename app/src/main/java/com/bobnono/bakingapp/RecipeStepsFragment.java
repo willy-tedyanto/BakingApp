@@ -19,8 +19,8 @@ public class RecipeStepsFragment extends Fragment{
 
     String TAG = RecipeStepsFragment.class.getSimpleName();
 
-    RecipeModel mRecipe;
-    int mPosition;
+    private static RecipeModel mRecipe;
+    private static int mPosition;
 
     private boolean mIsOrientationLandscape;
 
