@@ -31,6 +31,10 @@ public class NetworkUtils {
                 return null;
             }
         }
+        catch (IOException e){
+            Log.e(TAG, "Error IOException : " + e.getMessage());
+            return null;
+        }
         catch (Exception e){
             Log.e(TAG, "Error : " + e.getMessage());
             return null;

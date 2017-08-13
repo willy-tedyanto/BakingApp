@@ -5,9 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bobnono.bakingapp.model.RecipeModel;
+import com.squareup.picasso.Picasso;
+
+import static android.view.View.GONE;
 
 /**
  * Created by user on 2017-08-06.
@@ -44,12 +48,24 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.Ma
             holder.mTitleTextView.setText(mContext.getString(R.string.ingredients_term));
             holder.mSubTitleTextView.setText(mRecipe.getIngredientsCount() +
                     " " + mContext.getString(R.string.item_term));
+            holder.mThumbnailImageView.setVisibility(GONE);
+
         } else {
             //Return Steps
             int stepId = mRecipe.getStep(position - 1).getId();
             holder.mTitleTextView.setText(mContext.getString(R.string.step_term) +
                 " " + (stepId > 0 ? stepId : ""));
             holder.mSubTitleTextView.setText(mRecipe.getStep(position - 1).getShortDescription());
+
+            if (mRecipe.getStep(position - 1).getThumbnailUrl().length() == 0){
+                mRecipe.getStep(position - 1).setThumbnailUrl("-");
+            }
+
+            Picasso.with(mContext)
+                    .load(mRecipe.getStep(position - 1).getThumbnailUrl())
+                    .placeholder(R.drawable.ic_cached_black_24dp)
+                    .error(R.drawable.ic_error_outline_black_24dp)
+                    .into(holder.mThumbnailImageView);
         }
     }
 
@@ -66,11 +82,13 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.Ma
 
         public final TextView mTitleTextView;
         public final TextView mSubTitleTextView;
+        public final ImageView mThumbnailImageView;
 
         public MasterListAdapterViewHolder(View view){
             super(view);
             mTitleTextView = (TextView) view.findViewById(R.id.master_list_item_title_textview);
             mSubTitleTextView = (TextView) view.findViewById(R.id.master_list_item_subtitle_textview);
+            mThumbnailImageView = (ImageView) view.findViewById(R.id.recipe_step_thumbnail_imageview);
             view.setOnClickListener(this);
         }
 

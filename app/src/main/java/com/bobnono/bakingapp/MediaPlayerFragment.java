@@ -81,6 +81,18 @@ public class MediaPlayerFragment extends Fragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        releasePlayer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        releasePlayer();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         releasePlayer();

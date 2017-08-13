@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.bobnono.bakingapp.model.RecipeModel;
@@ -116,8 +115,6 @@ public class RecipeDetailsActivity extends AppCompatActivity
         MasterListFragment masterListFragment = new MasterListFragment();
         masterListFragment.setRecipe(mRecipe);
 
-        Log.e(TAG,"replacefragmentmaster : " + mRecipe.getName());
-
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.recipe_details_linear_layout, masterListFragment)
                 .commit();
@@ -192,6 +189,8 @@ public class RecipeDetailsActivity extends AppCompatActivity
 
     @Override
     public void onSaveInstanceState(Bundle currentState) {
+        super.onSaveInstanceState(currentState);
+
         currentState.putParcelable(BUNDLE_RECIPE, mRecipe);
         currentState.putInt(BUNDLE_POSITION, mPosition);
         currentState.putInt(BUNDLE_FRAGMENT_SHOW_WHAT, mFragmentShowWhat.ordinal());
